@@ -1,6 +1,19 @@
 import React from 'react'
 import logo from '../images/logo.png'
 
+const NavLink = ({ icon, text }) => {
+    return (
+        <li className="header-nav-list-item" >
+            <span className="header-nav-list-link">
+                <span className="header-nav-list-link__icon">
+                    <span className="material-icons">{icon}</span>
+                </span>
+                <span className="header-nav-list-link__text">{text}</span>
+            </span>
+        </li >
+    )
+}
+
 const Header = () => {
     return (
         <header className="header">
@@ -13,46 +26,11 @@ const Header = () => {
                 <div className="header-navbar">
                     <nav className="header-nav">
                         <ul className="header-nav-list">
-                            <li className="header-nav-list-item">
-                                <span className="header-nav-list-link">
-                                    <span className="header-nav-list-link__icon">
-                                        <span className="material-icons">info</span>
-                                    </span>
-                                    <span className="header-nav-list-link__text">About</span>
-                                </span>
-                            </li>
-                            <li className="header-nav-list-item">
-                                <span className="header-nav-list-link">
-                                    <span className="header-nav-list-link__icon">
-                                        <span className="material-icons">integration_instructions</span>
-                                    </span>
-                                    <span className="header-nav-list-link__text">Rules</span>
-                                </span>
-                            </li>
-                            <li className="header-nav-list-item">
-                                <span className="header-nav-list-link">
-                                    <span className="header-nav-list-link__icon">
-                                        <span className="material-icons">business</span>
-                                    </span>
-                                    <span className="header-nav-list-link__text">NSE</span>
-                                </span>
-                            </li>
-                            <li className="header-nav-list-item">
-                                <span className="header-nav-list-link">
-                                    <span className="header-nav-list-link__icon">
-                                        <span className="material-icons">badge</span>
-                                    </span>
-                                    <span className="header-nav-list-link__text">Portfolio</span>
-                                </span>
-                            </li>
-                            <li className="header-nav-list-item">
-                                <span className="header-nav-list-link">
-                                    <span className="header-nav-list-link__icon">
-                                        <span className="material-icons">account_circle</span>
-                                    </span>
-                                    <span className="header-nav-list-link__text">Log In</span>
-                                </span>
-                            </li>
+                            <NavLink icon="info" text="About" />
+                            <NavLink icon="integration_instructions" text="Rules" />
+                            <NavLink icon="business" text="NSE" />
+                            <NavLink icon="badge" text="Portfolio" />
+                            <NavLink icon="account_circle" text="Log In" />
                         </ul>
                     </nav>
                 </div>
