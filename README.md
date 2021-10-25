@@ -1,3 +1,7 @@
+# Stonks: Finding the next Buffet
+
+[Stonks](https://akshatmittal61.github.io/stonks) is an event by [Aavesh - IIITU](https://aavesh-iiitu.github.io).
+
 # Getting Started with Create React App
 
 This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
