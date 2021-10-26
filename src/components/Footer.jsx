@@ -6,7 +6,64 @@ import ld from '../images/linkedin.svg'
 import ig from '../images/instagram.svg'
 import gh from '../images/github.svg'
 
+const FooterSocialIcon = ({ link, src, alt }) => {
+    return (
+        <div className="footer-social-icon fb">
+            <a href={link} className="footer-social-icon__link">
+                <img src={src} className="footer-social-icon__img" alt={alt} />
+            </a>
+        </div>
+    )
+}
+const FooterEvents = ({ link, text }) => {
+    return (
+        <span className="footer-event">
+            <a href={link} className="footer-event-link">{text}</a>
+        </span>
+    )
+}
+
 const Footer = () => {
+    const socialicons = [
+        {
+            link: "https://www.facebook.com/TeamAAVESH/",
+            src: fb,
+            alt: "Facebook"
+        },
+        {
+            link: "https://www.linkedin.com/company/aavesh-iiitu/",
+            src: ld,
+            alt: "LinkedIn"
+        },
+        {
+            link: "https://www.instagram.com/teamaavesh/",
+            src: ig,
+            alt: "Instagram"
+        },
+        {
+            link: "https://github.com/Aavesh-IIITU",
+            src: gh,
+            alt: "GitHub"
+        }
+    ]
+    const events = [
+        {
+            link: "https://akshatmitta61.github.io/treasure",
+            text: "Treasure Hunt"
+        },
+        {
+            link: "https://akshatmitta61.github.io/quiz",
+            text: "Quiz"
+        },
+        {
+            link: "https://akshatmitta61.github.io/meme",
+            text: "Meme making"
+        },
+        {
+            link: "https://akshatmitta61.github.io/ideathon",
+            text: "Ideathon"
+        }
+    ]
     return (
         <footer className="footer">
             <div className="footer-container">
@@ -20,40 +77,18 @@ const Footer = () => {
                         Stonks | IIIT Una
                     </div>
                     <div className="footer-social">
-                        <div className="footer-social-icon fb">
-                            <a href="https://www.facebook.com/TeamAAVESH/" className="footer-social-icon__link">
-                                <img src={fb} className="footer-social-icon__img" alt="Facebook" />
-                            </a>
-                        </div>
-                        <div className="footer-social-icon ld">
-                            <a href="https://www.linkedin.com/company/aavesh-iiitu/" className="footer-social-icon__link">
-                                <img src={ld} className="footer-social-icon__img" alt="LinkedIn" />
-                            </a>
-                        </div>
-                        <div className="footer-social-icon ig">
-                            <a href="https://www.instagram.com/teamaavesh/" className="footer-social-icon__link">
-                                <img src={ig} className="footer-social-icon__img" alt="Instagram" />
-                            </a>
-                        </div>
-                        <div className="footer-social-icon gh">
-                            <a href="https://github.com/Aavesh-IIITU" className="footer-social-icon__link">
-                                <img src={gh} className="footer-social-icon__img" alt="GitHub" />
-                            </a>
-                        </div>
+                        {
+                            socialicons.map((icon, index) => (
+                                <FooterSocialIcon key={index} link={icon.link} src={icon.src} alt={icon.alt} />
+                            ))
+                        }
                     </div>
                     <div className="footer-events">
-                        <span className="footer-event">
-                            <a href="https://akshatmitta61.github.io/treasure" className="footer-event-link">Treasure Hunt</a>
-                        </span>
-                        <span className="footer-event">
-                            <a href="https://akshatmitta61.github.io/quiz" className="footer-event-link">Quiz</a>
-                        </span>
-                        <span className="footer-event">
-                            <a href="https://akshatmitta61.github.io/meme" className="footer-event-link">Meme making</a>
-                        </span>
-                        <span className="footer-event">
-                            <a href="https://akshatmitta61.github.io/ideathon" className="footer-event-link">Ideathon</a>
-                        </span>
+                        {
+                            events.map((event, index) => (
+                                <FooterEvents key={index} link={event.link} text={event.text} />
+                            ))
+                        }
                     </div>
                     <div className="footer-copyright">&copy; Aavesh - All rights reserved</div>
                 </div>

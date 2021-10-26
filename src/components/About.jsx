@@ -5,7 +5,7 @@ import bronze from '../images/bronze.svg'
 
 const About = () => {
     return (
-        <main className="about">
+        <main className="about" id="about">
             <div className="about-card">
                 <div className="about-card-heading">What is Stock Market</div>
                 <div className="about-card-text">

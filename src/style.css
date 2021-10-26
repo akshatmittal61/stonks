@@ -112,6 +112,7 @@
       .header-nav-list-link {
         margin: 0.5rem;
         padding: 0.5rem;
+        color: var(--bgcolor);
         display: flex;
         justify-content: center;
         align-items: center;
@@ -130,9 +131,14 @@
           background-color: rgba(255, 255, 255, 0.2); }
         .header-nav-list-link:active {
           background-color: rgba(255, 255, 255, 0.3); }
-        @media (max-width: 880px) {
-          .header-nav-list-link__text {
-            display: none; } }
+        .header-nav-list-link:focus {
+          background-color: rgba(255, 255, 255, 0.2);
+          transform: scale(0.9); }
+        .header-nav-list-link__text {
+          user-select: none; }
+          @media (max-width: 880px) {
+            .header-nav-list-link__text {
+              display: none; } }
 
 .hero {
   width: 100%;
@@ -195,6 +201,10 @@
     .hero-heading-image {
       width: 40%;
       justify-content: flex-end; }
+      @media (max-width: 880px) {
+        .hero-heading-image {
+          justify-content: center;
+          width: 35%; } }
       @media (max-width: 672px) {
         .hero-heading-image {
           width: 100%;
@@ -204,11 +214,13 @@
         max-width: 60%;
         max-height: 60%; }
     .hero-heading-text {
-      width: 60%;
       justify-content: center;
       flex-flow: column;
       flex-wrap: wrap;
       width: 50%; }
+      @media (max-width: 880px) {
+        .hero-heading-text {
+          width: 65%; } }
       @media (max-width: 672px) {
         .hero-heading-text {
           width: 100%;
@@ -264,7 +276,7 @@
           height: 80%;
           padding: 0; } }
     .about-card-content {
-      width: 70%;
+      width: 80%;
       height: 100%; }
       @media (max-width: 672px) {
         .about-card-content {
@@ -450,7 +462,12 @@ body,
 
 a {
   text-decoration: none;
-  color: var(--tcolor); }
+  color: var(--tcolor);
+  transition: all var(--transition-time) ease-in-out; }
+  a:focus {
+    outline: none;
+    background-color: var(--back-shadow-light);
+    padding: 0.5rem; }
 
 .row {
   width: 100%;

@@ -6,7 +6,6 @@ import back from '../images/mountains.jpg'
 
 const Hero = () => {
     const [phone, setPhone] = useState((window.innerWidth > 1200 ? true : false));
-    console.log(window.innerWidth);
     window.addEventListener("resize", () => {
         setPhone(document.body.clientWidth > 1200 ? true : false);
     })
