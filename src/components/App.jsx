@@ -1,5 +1,6 @@
 import React from 'react'
 import About from './About'
+import Footer from './Footer'
 import Hero from './Hero'
 
 const App = () => {
@@ -7,6 +8,7 @@ const App = () => {
         <>
             <Hero />
             <About />
+            <Footer />
         </>
     )
 }

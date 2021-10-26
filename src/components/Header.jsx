@@ -19,7 +19,7 @@ const Header = () => {
         <header className="header">
             <div className="header-box">
                 <div className="header-logo">
-                    <a className="header-logo-image" href="https://aavesh-iiitu.github.io/" target="_blank">
+                    <a className="header-logo-image" href="https://aavesh-iiitu.github.io/">
                         <img className="header-logo-image__img" src={logo} alt="Stonks" />
                     </a>
                 </div>
