@@ -6,15 +6,18 @@ import Hero from './Hero'
 import Portfolio from '../Pages/Portfolio/Portfolio'
 import Rules from '../Pages/Rules/Rules'
 import ScrollToTop from './ScrollToTop'
+import SignIn from '../Pages/Account/SignIn'
+import SignUp from '../Pages/Account/SignUp'
 
 const App = () => {
-    const [render, setRender] = useState(4);
+    const [render, setRender] = useState(5);
     const [stocks, setStocks] = useState(Array(10).fill({ company: "", volume: "" }));
+    const [sign, setSign] = useState(true);
     const user = {
-        name: "Akshat Mittal",
+        name: "",
         img: "",
         gender: '',
-        about: "Its not a crime to love what you cannot explain"
+        about: ""
     }
     const handleRender = (link) => {
         setRender(link + 1);
@@ -45,7 +48,9 @@ const App = () => {
                 render === 3 && (
                     <>
                         <Header GoToLink={handleRender} style={{ background: "var(--primary)" }} />
-                        <Rules GoTo={handleRender} />
+                        <main>
+                            <Rules GoTo={handleRender} />
+                        </main>
                     </>
                 )
             }
@@ -53,7 +58,27 @@ const App = () => {
                 render === 4 && (
                     <>
                         <Header GoToLink={handleRender} style={{ background: "var(--primary)" }} />
-                        <Portfolio user={user} GoTo={handleRender} stocks={stocks} submit={handleChangeStocks} />
+                        <main>
+                            <Portfolio user={user} GoTo={handleRender} stocks={stocks} submit={handleChangeStocks} />
+                        </main>
+                    </>
+                )
+            }
+            {
+                render === 5 && (
+                    <>
+                        <Header GoToLink={handleRender} style={{ background: "var(--primary)" }} />
+                        <main>
+                            <div className="account-heading">
+                                <div className="account-heading__back">
+                                    <button className="btn account-heading__back__button" onClick={() => { handleRender(0) }}>
+                                        <span className="material-icons">arrow_back</span>
+                                    </button>
+                                </div>
+                                <div className="account-heading__text">Your Account</div>
+                            </div>
+                            {sign ? <SignIn sign={() => { setSign(false) }} /> : <SignUp sign={() => { setSign(true) }} />}
+                        </main>
                     </>
                 )
             }

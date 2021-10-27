@@ -1,5 +1,4 @@
 @import url("https://fonts.googleapis.com/css2?family=Cabin&family=Montserrat&family=Open+Sans&family=Roboto&family=Sacramento&display=swap");
-@import url("https://fonts.googleapis.com/css2?family=Varela+Round&display=swap");
 * {
   margin: 0;
   padding: 0;
@@ -189,7 +188,7 @@
     color: var(--gray);
     font-size: 4.5rem;
     font-weight: 700;
-    font-family: Cabin, "Varela Round", sans-serif;
+    font-family: Cabin, sans-serif;
     text-transform: uppercase;
     letter-spacing: 0.5rem; }
   .hero-subtitle {
@@ -472,7 +471,7 @@
 
 .rules {
   width: 100%;
-  min-height: 57.5vh;
+  height: 100%;
   padding: 0.75rem 5rem 3.5rem 5rem;
   display: flex;
   justify-content: flex-start;
@@ -531,6 +530,7 @@
         padding: 0; } }
   .rules-bar {
     width: 0.5rem;
+    height: 100%;
     background-color: var(--primary);
     margin: 0 1.5rem;
     outline: 5px solid var(--gray);
@@ -778,6 +778,203 @@
             background-color: var(--primary-700);
             color: var(--bgcolor); }
 
+.account-heading {
+  width: 100%;
+  height: 10vh;
+  margin: 2rem 0;
+  color: var(--primary);
+  display: flex;
+  justify-content: flex-start;
+  align-items: center; }
+  .account-heading__back {
+    width: 10%;
+    height: 100%;
+    display: flex;
+    justify-content: center;
+    align-items: center; }
+    @media (max-width: 672px) {
+      .account-heading__back {
+        width: 20%; } }
+    .account-heading__back__button {
+      padding: 0.5rem;
+      border-radius: 500px;
+      transition: all var(--transition-time) ease-in-out; }
+      .account-heading__back__button:hover {
+        background-color: var(--back-shadow-light); }
+      .account-heading__back__button:active, .account-heading__back__button:focus {
+        background-color: var(--back-shadow); }
+      .account-heading__back__button .material-icons {
+        font-size: 2rem; }
+  .account-heading__text {
+    width: 90%;
+    height: 100%;
+    font-size: 4rem;
+    line-height: 4rem;
+    display: flex;
+    justify-content: flex-start;
+    align-items: center; }
+    @media (max-width: 672px) {
+      .account-heading__text {
+        width: 80%;
+        font-size: 3.5rem; } }
+
+.sign-in,
+.sign-up {
+  width: 75%;
+  height: 70vh;
+  margin: 1rem 0 5rem 0;
+  display: flex;
+  justify-content: center;
+  align-items: center; }
+  .sign-in-frame,
+  .sign-up-frame {
+    height: 95%;
+    width: 95%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    margin: 0.25rem;
+    padding: 0.25rem 0.125rem;
+    border-radius: 10px;
+    overflow: hidden;
+    background: linear-gradient(90deg, var(--green) 4%, var(--blue) 0%) top/100% 34% no-repeat, linear-gradient(90deg, var(--yellow) 50%, var(--blue) 0%) top/100% 82% no-repeat, linear-gradient(90deg, var(--yellow) 10%, var(--red) 0%) top/100% 100%;
+    box-shadow: 0 10px 15px rgba(60, 64, 67, 0.3); }
+    @media (max-width: 672px) {
+      .sign-in-frame,
+      .sign-up-frame {
+        padding: 0.125rem; } }
+  .sign-in-box,
+  .sign-up-box {
+    position: relative;
+    height: 99%;
+    width: 99%;
+    padding: 1rem;
+    border-radius: 10px;
+    background-color: var(--gray);
+    color: var(--primary);
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    transition: all var(--transition-time) ease-in-out; }
+  .sign-in-content,
+  .sign-up-content {
+    width: 50%;
+    height: 100%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-flow: column; }
+    @media (max-width: 880px) {
+      .sign-in-content,
+      .sign-up-content {
+        width: 100%; } }
+    .sign-in-content > *,
+    .sign-up-content > * {
+      display: flex;
+      justify-content: center;
+      align-items: center; }
+    .sign-in-content-title,
+    .sign-up-content-title {
+      width: 100%;
+      height: 20%;
+      font-size: 2rem;
+      letter-spacing: 0.25rem;
+      font-weight: 700;
+      padding: 1rem 0; }
+    .sign-in-content-form,
+    .sign-up-content-form {
+      width: 100%;
+      height: 60%;
+      flex-flow: column; }
+      .sign-in-content-form__group,
+      .sign-up-content-form__group {
+        width: 80%;
+        height: 30%;
+        display: flex;
+        justify-content: center;
+        align-items: center; }
+        .sign-in-content-form__group input,
+        .sign-up-content-form__group input {
+          width: 100%; }
+        .sign-in-content-form__group label,
+        .sign-up-content-form__group label {
+          display: flex; }
+      .sign-in-content-form__button,
+      .sign-up-content-form__button {
+        width: 25%;
+        height: 50%;
+        padding: 0.25rem;
+        background-color: var(--primary-400);
+        color: var(--bgcolor);
+        border-radius: 6.66667px;
+        cursor: pointer;
+        font-size: 1rem;
+        border: none;
+        outline: 3.5px solid transparent;
+        border-radius: 6.66667px;
+        transition: all var(--transition-time) ease-in-out; }
+        @media (max-width: 672px) {
+          .sign-in-content-form__button,
+          .sign-up-content-form__button {
+            width: 50%; } }
+        .sign-in-content-form__button:hover,
+        .sign-up-content-form__button:hover {
+          background-color: transparent;
+          outline: 3.5px solid var(--primary-400);
+          color: var(--tcolor-700); }
+        .sign-in-content-form__button:active, .sign-in-content-form__button:focus,
+        .sign-up-content-form__button:active,
+        .sign-up-content-form__button:focus {
+          outline: 3.5px solid var(--primary-100);
+          background-color: var(--primary-700);
+          color: var(--bgcolor); }
+    .sign-in-content-signup, .sign-in-content-signin,
+    .sign-up-content-signup,
+    .sign-up-content-signin {
+      width: 100%;
+      height: 20%; }
+      .sign-in-content-signup span, .sign-in-content-signin span,
+      .sign-up-content-signup span,
+      .sign-up-content-signin span {
+        color: var(--tcolor);
+        cursor: pointer;
+        padding: 0.25rem 0; }
+        .sign-in-content-signup span:hover, .sign-in-content-signin span:hover,
+        .sign-up-content-signup span:hover,
+        .sign-up-content-signin span:hover {
+          text-decoration: underline; }
+  .sign-in-image,
+  .sign-up-image {
+    width: 50%;
+    height: 100%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    background-size: cover; }
+    @media (max-width: 880px) {
+      .sign-in-image,
+      .sign-up-image {
+        display: none; } }
+
+.sign-up {
+  height: 85vh; }
+  .sign-up-content-title {
+    height: 20%;
+    padding: 1rem 0; }
+  .sign-up-content-form {
+    height: 70%; }
+    .sign-up-content-form__group {
+      width: 80%;
+      height: 30%; }
+      .sign-up-content-form__group input {
+        width: 100%; }
+      .sign-up-content-form__group label {
+        display: flex;
+        width: 30%;
+        font-size: 0.875rem; }
+  .sign-up-content-signin {
+    height: 10%; }
+
 html {
   font-size: 16px; }
   @media (max-width: 672px) {
@@ -799,6 +996,14 @@ body,
   line-height: 1.25rem;
   transition: all var(--transition-time) ease-in-out;
   position: relative; }
+
+main {
+  width: 100%;
+  min-height: 57.5vh;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  flex-flow: column; }
 
 a {
   text-decoration: none;
@@ -829,6 +1034,8 @@ input {
   input:active, input:focus {
     border: none;
     outline: 3px solid rgba(0, 0, 0, 0.2); }
+  input::placeholder {
+    font-size: 0.875rem; }
 
 .scroll-to-top {
   background-color: var(--primary-400);

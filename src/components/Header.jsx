@@ -50,7 +50,7 @@ const Header = ({ GoToLink, style }) => {
                                 </a>
                             </li>
                             <li className="header-nav-list-item">
-                                <a className="header-nav-list-link" href="#" target="_self">
+                                <a className="header-nav-list-link" href="#" target="_self" onClick={() => { GoToLink(4) }}>
                                     <span className="header-nav-list-link__icon">
                                         <span className="material-icons">account_circle</span>
                                     </span>
