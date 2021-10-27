@@ -1,29 +1,106 @@
-import React from 'react'
+import React, { useState } from 'react'
+import man from '../../images/man.svg'
+import woman from '../../images/woman.svg'
+import person from '../../images/person.svg'
 
-const Portfolio = ({ user }) => {
+const Portfolio = ({ user, GoTo, stocks, submit }) => {
+    const companySuggestions = ["Google", "Microsoft", "Facebook", "Apple", "Amazon", "Netflix", "Tesla"];
+    const [allStocks, setAllStocks] = useState(stocks);
+    const handleChange = (e, id) => {
+        const { name, value } = e.target;
+        const changeStocks = [...allStocks];
+        changeStocks[id] = {
+            ...changeStocks[id],
+            [name]: value
+        };
+        setAllStocks(changeStocks);
+    }
+    const submitStocks = (e) => {
+        e.preventDefault();
+        submit(allStocks);
+    }
     return (
-        <section className="portfolio">
+        <section className="portfolio" id="about">
+            <div className="portfolio-heading">
+                <div className="portfolio-heading__back">
+                    <button className="btn portfolio-heading__back__button" onClick={() => { GoTo(0) }}>
+                        <span className="material-icons">arrow_back</span>
+                    </button>
+                </div>
+                <div className="portfolio-heading__text">Your Portfolio</div>
+            </div>
             <div className="portfolio-user">
                 <div className="portfolio-user-image">
-                    <img className="portfolio-user-image__img" src={user.img} alt="User Image" />
+                    <img className="portfolio-user-image__img" src={user.img !== "" ? user.img : (user.gender === 'M' ? man : (user.gender === 'F' ? woman : person))} alt="User Profile" />
                 </div>
-                <div className="portfolio-user-name">
-                    <span>
-                        {user.name}
-                    </span>
-                </div>
-            </div>
-            <div className="portfolio-content">
-                <div className="table">
-                    <div className="table-tr">
-                        <span className="table-th">
-                            Company Name
+                <div className="portfolio-user-content">
+                    <div className="portfolio-user-content__name">
+                        <span>
+                            {user.name !== "" ? user.name : "Your Name Here"}
                         </span>
-                        <span className="table-th">
-                            Volume of stocks
+                    </div>
+                    <div className="portfolio-user-content__about">
+                        <span>
+                            {user.about !== "" ? user.about : "About Me"}
                         </span>
                     </div>
                 </div>
+            </div>
+            <div className="portfolio-content">
+                <form className="portfolio-form" onSubmit={submitStocks}>
+                    <table className="table">
+                        <tr className="table-tr">
+                            <th className="table-th">
+                                Company Name
+                            </th>
+                            <th className="table-th">
+                                Volume of stocks
+                            </th>
+                        </tr>
+                        {
+                            allStocks.map((stock, index) => {
+                                return (
+                                    <tr key={index} className="table-tr">
+                                        <td className="table-td table-td-company">
+                                            <input
+                                                className="table-td-company__input"
+                                                type="text"
+                                                placeholder="Company Name"
+                                                list="typeSuggestions"
+                                                name="company"
+                                                value={stock.company}
+                                                onChange={(e) => { handleChange(e, index) }}
+                                            />
+                                            <datalist id="typeSuggestions">
+                                                {
+                                                    companySuggestions.map((companySuggestion, index) => (
+                                                        <option value={companySuggestion} key={index} />
+                                                    ))
+                                                }
+                                            </datalist>
+                                        </td>
+                                        <td className="table-td table-td-volume">
+                                            <input
+                                                className="table-td-volume__input"
+                                                type="number"
+                                                min="1"
+                                                placeholder="Volume"
+                                                name="volume"
+                                                value={stock.volume}
+                                                onChange={(e) => { handleChange(e, index) }}
+                                            />
+                                        </td>
+                                    </tr>
+                                )
+                            })
+                        }
+                        <tr className="portfolio-form-button table-tr">
+                            <td className="portfolio-form-button__save table-td" colSpan="2" style={{ width: "20%", padding: 0 }}>
+                                <button className="portfolio-form-button__save__button" type="submit">Save</button>
+                            </td>
+                        </tr>
+                    </table>
+                </form>
             </div>
         </section>
     )

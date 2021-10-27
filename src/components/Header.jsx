@@ -34,7 +34,7 @@ const Header = ({ GoToLink, style }) => {
                                 </a>
                             </li>
                             <li className="header-nav-list-item">
-                                <a className="header-nav-list-link" href="https://nseindia.com" target="_blank">
+                                <a className="header-nav-list-link" href="https://nseindia.com" target="_blank" rel="noreferrer">
                                     <span className="header-nav-list-link__icon">
                                         <span className="material-icons">business</span>
                                     </span>

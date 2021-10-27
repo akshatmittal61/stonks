@@ -1,13 +1,16 @@
 import React from 'react'
+import AOS from 'aos';
+import 'aos/dist/aos.css';
 
-const Rule = () => {
+const Rule = ({ title, content }) => {
+    AOS.init();
     return (
-        <div className="rule">
+        <div className="rule" data-aos="fade-up">
             <div className="rule-frame">
                 <div className="rule-box">
-                    <div className="rule-title">Rule heading</div>
+                    <div className="rule-title">{title}</div>
                     <div className="rule-content">
-                        Lorem ipsum dolor sit amet, consectetur adipiscing elit. Nunc in augue at est egestas cursus eu condimentum est. Donec auctor et diam nec porttitor.
+                        {content}
                     </div>
                 </div>
             </div>
