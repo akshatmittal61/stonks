@@ -6,12 +6,12 @@ import bronze from '../images/bronze.svg'
 const About = () => {
     return (
         <main className="about" id="about">
-            <div className="about-card">
+            {/* <div className="about-card">
                 <div className="about-card-heading">What is Stock Market</div>
                 <div className="about-card-text">
                     Lorem ipsum dolor sit amet, consectetur adipiscing elit. Nunc in augue at est egestas cursus eu condimentum est. Donec auctor et diam nec porttitor. Nunc pulvinar lorem a tellus dictum, eget tempor sapien posuere. In sit amet orci quis ligula pellentesque faucibus.
                 </div>
-            </div>
+            </div> */}
             <div className="about-card">
                 <div className="about-card-heading">About Stonks</div>
                 <div className="about-card-text">

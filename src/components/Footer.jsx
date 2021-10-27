@@ -23,7 +23,7 @@ const FooterEvents = ({ link, text }) => {
     )
 }
 
-const Footer = () => {
+const Footer = ({ GoTo }) => {
     const socialicons = [
         {
             link: "https://www.facebook.com/TeamAAVESH/",
@@ -69,12 +69,14 @@ const Footer = () => {
             <div className="footer-container">
                 <div className="footer-left">
                     <div className="footer-left-image">
-                        <img className="footer-left-image__img" src={favicon} alt="Stonks favicon" />
+                        <img className="footer-left-image__img" src={favicon} alt="Stonks favicon" onClick={() => { GoTo(0) }} />
                     </div>
                 </div>
                 <div className="footer-mid">
                     <div className="footer-title">
-                        Stonks | IIIT Una
+                        <span onClick={() => { GoTo(0) }}>
+                            Stonks | IIIT Una
+                        </span>
                     </div>
                     <div className="footer-social">
                         {
@@ -94,7 +96,9 @@ const Footer = () => {
                 </div>
                 <div className="footer-right">
                     <div className="footer-right-image">
-                        <img className="footer-right-image__img" src={logo} alt="Aavesh" />
+                        <a className="footer-right-image__link" href="https://aavesh-iiitu.github.io/">
+                            <img className="footer-right-image__img" src={logo} alt="Aavesh" />
+                        </a>
                     </div>
                 </div>
             </div>

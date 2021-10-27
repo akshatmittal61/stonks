@@ -4,7 +4,7 @@ import frame from '../images/cave.png'
 import favicon from '../images/favicon.png'
 import back from '../images/mountains.jpg'
 
-const Hero = () => {
+const Hero = ({ GoTo }) => {
     const [phone, setPhone] = useState((window.innerWidth > 1200 ? true : false));
     window.addEventListener("resize", () => {
         setPhone(document.body.clientWidth > 1200 ? true : false);
@@ -12,10 +12,10 @@ const Hero = () => {
     return (
         <div className="hero" style={{ backgroundImage: `url(${back})` }}>
             <div className="hero-box" style={{ backgroundImage: `url(${phone ? frame : null})` }}>
-                <Header />
+                <Header GoToLink={GoTo} style={{ background: "transparent" }} />
                 <div className="hero-content">
                     <div className="hero-title">
-                        Aavesh IIITU
+                        Aavesh
                     </div>
                     <div className="hero-subtitle">
                         presents
@@ -26,7 +26,7 @@ const Hero = () => {
                         </div>
                         <div className="hero-heading-text">
                             <span>Stonks: </span>
-                            <span>Finding Next Buffet</span>
+                            <span>Finding The Next Buffet</span>
                         </div>
                     </div>
                 </div>
