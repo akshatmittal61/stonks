@@ -243,7 +243,13 @@
           padding: 0 2rem; } }
       .hero-heading-text > * {
         width: 100%;
-        margin: 2rem 0; }
+        margin: 2rem 0;
+        display: flex;
+        justify-content: flex-start;
+        align-items: center; }
+      .hero-heading-text span:nth-child(2) {
+        align-items: flex-start;
+        margin: 0 0 2rem 0; }
 
 .about {
   width: 100%;

@@ -54,7 +54,7 @@ const Portfolio = ({ user, GoTo, stocks, submit }) => {
                                 Company Name
                             </th>
                             <th className="table-th">
-                                Volume of stocks
+                                Shares issued
                             </th>
                         </tr>
                         {

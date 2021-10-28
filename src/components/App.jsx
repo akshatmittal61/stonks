@@ -99,7 +99,7 @@ const App = () => {
             {
                 render === 3 && (
                     <>
-                        <Header GoToLink={handleRender} style={{ background: "var(--primary)" }} />
+                        <Header GoToLink={handleRender} style={{ background: "var(--primary)" }} home={false} />
                         <main>
                             <Rules GoTo={handleRender} />
                         </main>
@@ -109,7 +109,7 @@ const App = () => {
             {
                 render === 4 && (
                     <>
-                        <Header GoToLink={handleRender} style={{ background: "var(--primary)" }} />
+                        <Header GoToLink={handleRender} style={{ background: "var(--primary)" }} home={false} />
                         <main>
                             <Portfolio user={user} GoTo={handleRender} stocks={stocks} submit={handleChangeStocks} />
                         </main>
@@ -119,7 +119,7 @@ const App = () => {
             {
                 render === 5 && (
                     <>
-                        <Header GoToLink={handleRender} style={{ background: "var(--primary)" }} />
+                        <Header GoToLink={handleRender} style={{ background: "var(--primary)" }} home={false} />
                         <main>
                             <div className="account-heading">
                                 <div className="account-heading__back">

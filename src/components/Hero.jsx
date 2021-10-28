@@ -15,7 +15,7 @@ const Hero = ({ GoTo }) => {
     return (
         <div className="hero" style={{ backgroundImage: `url(${back})` }}>
             <div className="hero-box" style={{ backgroundImage: `url(${phone ? frame : null})` }}>
-                <Header GoToLink={GoTo} style={{ background: "transparent" }} />
+                <Header GoToLink={GoTo} style={{ background: "transparent" }} home={true} />
                 <div className="hero-content" data-aos="zoom-out">
                     <div className="hero-title">
                         Aavesh

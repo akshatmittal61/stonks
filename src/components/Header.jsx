@@ -1,18 +1,32 @@
 import React from 'react'
+import favicon from '../images/favicon.png'
 import logo from '../images/logo.png'
 import iiitu from '../images/iiitu.gif'
 
-const Header = ({ GoToLink, style }) => {
+const Header = ({ GoToLink, style, home }) => {
     return (
         <header className="header" style={style}>
             <div className="header-box">
                 <div className="header-logo">
-                    <a className="header-logo-image" href="https://iiitu.ac.in/">
-                        <img className="header-logo-image__img" src={iiitu} alt="III Una" />
-                    </a>
-                    <a className="header-logo-image" href="https://aavesh-iiitu.github.io/">
-                        <img className="header-logo-image__img" src={logo} alt="Stonks" />
-                    </a>
+                    {
+                        home && (
+                            <>
+                                <a className="header-logo-image" href="https://iiitu.ac.in/">
+                                    <img className="header-logo-image__img" src={iiitu} alt="III Una" />
+                                </a>
+                                <a className="header-logo-image" href="https://aavesh-iiitu.github.io/">
+                                    <img className="header-logo-image__img" src={logo} alt="Stonks" />
+                                </a>
+                            </>
+                        )
+                    }
+                    {
+                        !home && (
+                            <span className="header-logo-image" onClick={() => { GoToLink(0) }}>
+                                <img className="header-logo-image__img" src={favicon} alt="Stonks" />
+                            </span>
+                        )
+                    }
                 </div>
                 <div className="header-navbar">
                     <nav className="header-nav">
