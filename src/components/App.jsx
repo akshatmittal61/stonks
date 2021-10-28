@@ -10,11 +10,13 @@ import SignIn from '../Pages/Account/SignIn'
 import SignUp from '../Pages/Account/SignUp'
 
 const App = () => {
-    const [render, setRender] = useState(5);
+    const [render, setRender] = useState(1);
     const [stocks, setStocks] = useState(Array(10).fill({ company: "", volume: "" }));
-    const [sign, setSign] = useState(true);
+    const [accountExist, setAccountExist] = useState(true);
+    const [loggedIn, setLoggedIn] = useState(false);
     const user = {
-        name: "",
+        fname: "",
+        lname: "",
         img: "",
         gender: '',
         about: ""
@@ -33,6 +35,16 @@ const App = () => {
     function topFunction() {
         document.body.scrollTop = 0;
         document.documentElement.scrollTop = 0;
+    }
+    const handleSignIn = (a) => {
+        console.log(a);
+        setAccountExist(true);
+        setLoggedIn(true);
+    }
+    const handleSignUp = (a) => {
+        console.log(a);
+        setLoggedIn(false);
+        setAccountExist(true);
     }
     return (
         <>
@@ -77,7 +89,17 @@ const App = () => {
                                 </div>
                                 <div className="account-heading__text">Your Account</div>
                             </div>
-                            {sign ? <SignIn sign={() => { setSign(false) }} /> : <SignUp sign={() => { setSign(true) }} />}
+                            {accountExist ? (
+                                <SignIn
+                                    sign={() => { setAccountExist(false) }}
+                                    submit={handleSignIn}
+                                />
+                            ) : (
+                                <SignUp
+                                    sign={() => { setAccountExist(true) }}
+                                    submit={handleSignUp}
+                                />
+                            )}
                         </main>
                     </>
                 )

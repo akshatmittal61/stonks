@@ -1,9 +1,12 @@
 import React, { useState } from 'react'
+import AOS from 'aos';
+import 'aos/dist/aos.css';
 import man from '../../images/man.svg'
 import woman from '../../images/woman.svg'
 import person from '../../images/person.svg'
 
 const Portfolio = ({ user, GoTo, stocks, submit }) => {
+    AOS.init();
     const companySuggestions = ["Google", "Microsoft", "Facebook", "Apple", "Amazon", "Netflix", "Tesla"];
     const [allStocks, setAllStocks] = useState(stocks);
     const handleChange = (e, id) => {
@@ -29,14 +32,14 @@ const Portfolio = ({ user, GoTo, stocks, submit }) => {
                 </div>
                 <div className="portfolio-heading__text">Your Portfolio</div>
             </div>
-            <div className="portfolio-user">
+            <div className="portfolio-user" data-aos="fade-up">
                 <div className="portfolio-user-image">
                     <img className="portfolio-user-image__img" src={user.img !== "" ? user.img : (user.gender === 'M' ? man : (user.gender === 'F' ? woman : person))} alt="User Profile" />
                 </div>
                 <div className="portfolio-user-content">
                     <div className="portfolio-user-content__name">
                         <span>
-                            {user.name !== "" ? user.name : "Your Name Here"}
+                            {user.fname !== "" ? `${user.fname} ${user.lname}` : "Your Name Here"}
                         </span>
                     </div>
                     <div className="portfolio-user-content__about">
@@ -46,7 +49,7 @@ const Portfolio = ({ user, GoTo, stocks, submit }) => {
                     </div>
                 </div>
             </div>
-            <div className="portfolio-content">
+            <div className="portfolio-content" data-aos="fade-up">
                 <form className="portfolio-form" onSubmit={submitStocks}>
                     <table className="table">
                         <tr className="table-tr">

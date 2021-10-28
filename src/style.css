@@ -231,7 +231,6 @@
       justify-content: center;
       flex-flow: column;
       line-height: 4rem;
-      flex-wrap: wrap;
       width: 60%; }
       @media (max-width: 880px) {
         .hero-heading-text {
@@ -855,14 +854,17 @@
     display: flex;
     justify-content: center;
     align-items: center;
+    flex-flow: row-reverse;
     transition: all var(--transition-time) ease-in-out; }
+    .sign-in-box > *,
+    .sign-up-box > * {
+      width: 50%;
+      height: 100%;
+      display: flex;
+      justify-content: center;
+      align-items: center; }
   .sign-in-content,
   .sign-up-content {
-    width: 50%;
-    height: 100%;
-    display: flex;
-    justify-content: center;
-    align-items: center;
     flex-flow: column; }
     @media (max-width: 880px) {
       .sign-in-content,
@@ -895,7 +897,8 @@
         align-items: center; }
         .sign-in-content-form__group input,
         .sign-up-content-form__group input {
-          width: 100%; }
+          width: 100%;
+          margin: 0 0.5rem; }
         .sign-in-content-form__group label,
         .sign-up-content-form__group label {
           display: flex; }
@@ -945,11 +948,6 @@
           text-decoration: underline; }
   .sign-in-image,
   .sign-up-image {
-    width: 50%;
-    height: 100%;
-    display: flex;
-    justify-content: center;
-    align-items: center;
     background-size: cover; }
     @media (max-width: 880px) {
       .sign-in-image,
@@ -958,6 +956,8 @@
 
 .sign-up {
   height: 85vh; }
+  .sign-up-box {
+    flex-flow: row; }
   .sign-up-content-title {
     height: 20%;
     padding: 1rem 0; }
