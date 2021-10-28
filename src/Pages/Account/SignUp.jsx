@@ -26,19 +26,24 @@ const SignUp = ({ sign, submit }) => {
     }
     const handleSubmit = (e) => {
         e.preventDefault();
-        if (checkPswd === user.password) {
-            setUser({
-                fname: "",
-                lname: "",
-                email: "",
-                password: "",
-                gender: ""
-            })
-            submit(user);
+        if ((user.fname !== "" && user.lname !== "" && user.email !== "" && user.password !== "")) {
+            if ((checkPswd === user.password)) {
+                setUser({
+                    fname: "",
+                    lname: "",
+                    email: "",
+                    password: "",
+                    gender: ""
+                })
+                submit(user);
+            }
+            else {
+                alert("The password does not match. Try Again !");
+                setCheckPswd("")
+            };
         }
         else {
-            alert("The password does not match. Try Again !");
-            setCheckPswd("")
+            alert("Please fill in all the fields");
         };
         setCheckPswd("");
     }

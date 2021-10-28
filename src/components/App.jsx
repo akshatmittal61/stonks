@@ -17,7 +17,7 @@ const App = () => {
     const [render, setRender] = useState(1);
     const [stocks, setStocks] = useState(Array(10).fill({ company: "", volume: "" }));
     const [accountExist, setAccountExist] = useState(true);
-    const [loggedIn, setLoggedIn] = useState(true);
+    const [loggedIn, setLoggedIn] = useState(false);
     const [user, setUser] = useState({
         fname: "",
         lname: "",
@@ -63,8 +63,28 @@ const App = () => {
             gender: a.gender,
             img: (user.img !== person && user.img !== man && user.img !== woman) ? user.img : (a.gender === 'M' ? man : (a.gender === 'F' ? woman : person))
         })
+        setLoggedIn(true);
+        setAccountExist(true);
+    }
+    const handleLogOut = () => {
         setLoggedIn(false);
         setAccountExist(true);
+        setUser({
+            fname: "",
+            lname: "",
+            email: "",
+            password: "",
+            gender: '',
+            img: person,
+            about: ""
+        });
+    }
+    const handleAbout = (a) => {
+        console.log(a);
+        setUser({
+            ...user,
+            about: a
+        })
     }
     return (
         <>
@@ -112,7 +132,7 @@ const App = () => {
                             {
                                 accountExist ? (
                                     loggedIn ? (
-                                        <Profile account={user} LogOut={() => { setLoggedIn(false); setAccountExist(true); }} />
+                                        <Profile account={user} LogOut={() => { handleLogOut() }} submit={handleAbout} />
                                     ) : (
                                         <SignIn
                                             sign={() => { setAccountExist(false) }}

@@ -1,10 +1,13 @@
 import React, { useState } from 'react'
 import Header from './Header'
+import AOS from 'aos';
+import 'aos/dist/aos.css';
 import frame from '../images/cave.png'
 import favicon from '../images/favicon.png'
-import back from '../images/mountains.jpg'
+import back from '../images/back.jpg'
 
 const Hero = ({ GoTo }) => {
+    AOS.init();
     const [phone, setPhone] = useState((window.innerWidth > 1200 ? true : false));
     window.addEventListener("resize", () => {
         setPhone(document.body.clientWidth > 1200 ? true : false);
@@ -13,7 +16,7 @@ const Hero = ({ GoTo }) => {
         <div className="hero" style={{ backgroundImage: `url(${back})` }}>
             <div className="hero-box" style={{ backgroundImage: `url(${phone ? frame : null})` }}>
                 <Header GoToLink={GoTo} style={{ background: "transparent" }} />
-                <div className="hero-content">
+                <div className="hero-content" data-aos="zoom-out">
                     <div className="hero-title">
                         Aavesh
                     </div>

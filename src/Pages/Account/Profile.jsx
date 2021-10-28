@@ -2,9 +2,13 @@ import React, { useState } from 'react'
 import AOS from 'aos';
 import 'aos/dist/aos.css';
 
-const Profile = ({ account, LogOut }) => {
+const Profile = ({ account, LogOut, submit }) => {
     AOS.init();
     const [about, setAbout] = useState(account.about !== "" ? account.about : "About Me");
+    const handleChange = (e) => {
+        setAbout(e.target.value);
+        submit(e.target.value);
+    }
     const handleLogOut = () => {
         LogOut();
     }
@@ -21,7 +25,7 @@ const Profile = ({ account, LogOut }) => {
                                 <span>{account.fname !== "" ? `${account.fname} ${account.lname}` : "Your Name Here"}</span>
                             </div>
                             <div className="profile-head-content__about">
-                                <span contentEditable={true}>{about}</span>
+                                <input value={about} onChange={handleChange} />
                             </div>
                         </div>
                     </div>

@@ -1,9 +1,6 @@
 import React, { useState } from 'react'
 import AOS from 'aos';
 import 'aos/dist/aos.css';
-import man from '../../images/man.svg'
-import woman from '../../images/woman.svg'
-import person from '../../images/person.svg'
 
 const Portfolio = ({ user, GoTo, stocks, submit }) => {
     AOS.init();

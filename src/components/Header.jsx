@@ -26,12 +26,12 @@ const Header = ({ GoToLink, style }) => {
                                 </a>
                             </li>
                             <li className="header-nav-list-item">
-                                <a className="header-nav-list-link" href="#" target="_self" onClick={() => { GoToLink(2) }}>
+                                <button className="header-nav-list-link" onClick={() => { GoToLink(2) }}>
                                     <span className="header-nav-list-link__icon">
                                         <span className="material-icons">integration_instructions</span>
                                     </span>
                                     <span className="header-nav-list-link__text">Rules</span>
-                                </a>
+                                </button>
                             </li>
                             <li className="header-nav-list-item">
                                 <a className="header-nav-list-link" href="https://nseindia.com" target="_blank" rel="noreferrer">
@@ -42,20 +42,20 @@ const Header = ({ GoToLink, style }) => {
                                 </a>
                             </li>
                             <li className="header-nav-list-item">
-                                <a className="header-nav-list-link" href="#" target="_self" onClick={() => { GoToLink(3) }}>
+                                <button className="header-nav-list-link" onClick={() => { GoToLink(3) }}>
                                     <span className="header-nav-list-link__icon">
                                         <span className="material-icons">badge</span>
                                     </span>
                                     <span className="header-nav-list-link__text">Portfolio</span>
-                                </a>
+                                </button>
                             </li>
                             <li className="header-nav-list-item">
-                                <a className="header-nav-list-link" href="#" target="_self" onClick={() => { GoToLink(4) }}>
+                                <button className="header-nav-list-link" onClick={() => { GoToLink(4) }}>
                                     <span className="header-nav-list-link__icon">
                                         <span className="material-icons">account_circle</span>
                                     </span>
                                     <span className="header-nav-list-link__text">Log In</span>
-                                </a>
+                                </button>
                             </li>
                         </ul>
                     </nav>

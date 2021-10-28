@@ -19,11 +19,16 @@ const SignIn = ({ sign, submit }) => {
     }
     const handleSubmit = (e) => {
         e.preventDefault();
-        submit(user);
-        setUser({
-            email: "",
-            password: ""
-        })
+        if (user.email !== "" && user.password !== "") {
+            submit(user);
+            setUser({
+                email: "",
+                password: ""
+            })
+        }
+        else {
+            alert("Please fill in the fields");
+        }
     }
     return (
         <section className="sign-in" id="about" data-aos="fade-up">
