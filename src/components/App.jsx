@@ -8,21 +8,33 @@ import Rules from '../Pages/Rules/Rules'
 import ScrollToTop from './ScrollToTop'
 import SignIn from '../Pages/Account/SignIn'
 import SignUp from '../Pages/Account/SignUp'
+import Profile from '../Pages/Account/Profile'
+import man from '../images/man.svg'
+import woman from '../images/woman.svg'
+import person from '../images/person.svg'
 
 const App = () => {
     const [render, setRender] = useState(1);
     const [stocks, setStocks] = useState(Array(10).fill({ company: "", volume: "" }));
     const [accountExist, setAccountExist] = useState(true);
-    const [loggedIn, setLoggedIn] = useState(false);
-    const user = {
+    const [loggedIn, setLoggedIn] = useState(true);
+    const [user, setUser] = useState({
         fname: "",
         lname: "",
-        img: "",
+        email: "",
+        password: "",
         gender: '',
+        img: person,
         about: ""
-    }
+    });
     const handleRender = (link) => {
         setRender(link + 1);
+        setUser(() => {
+            return {
+                ...user,
+                img: (user.img !== person && user.img !== man && user.img !== woman) ? user.img : (user.gender === 'M' ? man : (user.gender === 'F' ? woman : person))
+            }
+        })
     }
     const handleChangeStocks = (e) => {
         setStocks(e);
@@ -43,6 +55,14 @@ const App = () => {
     }
     const handleSignUp = (a) => {
         console.log(a);
+        setUser({
+            fname: a.fname,
+            lname: a.lname,
+            email: a.email,
+            password: a.password,
+            gender: a.gender,
+            img: (user.img !== person && user.img !== man && user.img !== woman) ? user.img : (a.gender === 'M' ? man : (a.gender === 'F' ? woman : person))
+        })
         setLoggedIn(false);
         setAccountExist(true);
     }
@@ -89,17 +109,23 @@ const App = () => {
                                 </div>
                                 <div className="account-heading__text">Your Account</div>
                             </div>
-                            {accountExist ? (
-                                <SignIn
-                                    sign={() => { setAccountExist(false) }}
-                                    submit={handleSignIn}
-                                />
-                            ) : (
-                                <SignUp
-                                    sign={() => { setAccountExist(true) }}
-                                    submit={handleSignUp}
-                                />
-                            )}
+                            {
+                                accountExist ? (
+                                    loggedIn ? (
+                                        <Profile account={user} LogOut={() => { setLoggedIn(false); setAccountExist(true); }} />
+                                    ) : (
+                                        <SignIn
+                                            sign={() => { setAccountExist(false) }}
+                                            submit={handleSignIn}
+                                        />
+                                    )
+                                ) : (
+                                    <SignUp
+                                        sign={() => { setAccountExist(true) }}
+                                        submit={handleSignUp}
+                                    />
+                                )
+                            }
                         </main>
                     </>
                 )

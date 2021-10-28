@@ -34,7 +34,7 @@ const Portfolio = ({ user, GoTo, stocks, submit }) => {
             </div>
             <div className="portfolio-user" data-aos="fade-up">
                 <div className="portfolio-user-image">
-                    <img className="portfolio-user-image__img" src={user.img !== "" ? user.img : (user.gender === 'M' ? man : (user.gender === 'F' ? woman : person))} alt="User Profile" />
+                    <img className="portfolio-user-image__img" src={user.img} alt="User Profile" />
                 </div>
                 <div className="portfolio-user-content">
                     <div className="portfolio-user-content__name">

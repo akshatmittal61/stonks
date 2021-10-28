@@ -682,22 +682,17 @@
         .portfolio-user-content {
           width: 100%;
           height: 40%; } }
-      .portfolio-user-content__name {
+      .portfolio-user-content > * {
         width: 100%;
         height: 50%;
         padding: 0 2rem;
         display: flex;
         justify-content: flex-start;
-        align-items: center;
+        align-items: center; }
+      .portfolio-user-content__name {
         font-size: 2rem;
         color: var(--primary-600); }
       .portfolio-user-content__about {
-        width: 100%;
-        height: 50%;
-        padding: 0 2rem;
-        display: flex;
-        justify-content: flex-start;
-        align-items: center;
         font-size: 1rem; }
   .portfolio-content {
     width: 70%;
@@ -974,6 +969,188 @@
         font-size: 0.875rem; }
   .sign-up-content-signin {
     height: 10%; }
+
+.profile {
+  width: 75%;
+  height: 70vh;
+  margin: 1rem 0 5rem 0;
+  display: flex;
+  justify-content: center;
+  align-items: center; }
+  .profile-frame {
+    height: 95%;
+    width: 95%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    margin: 0.25rem;
+    padding: 0.25rem 0.125rem;
+    border-radius: 10px;
+    overflow: hidden;
+    background: linear-gradient(90deg, var(--green) 4%, var(--blue) 0%) top/100% 34% no-repeat, linear-gradient(90deg, var(--yellow) 50%, var(--blue) 0%) top/100% 82% no-repeat, linear-gradient(90deg, var(--yellow) 10%, var(--red) 0%) top/100% 100%;
+    box-shadow: 0 10px 15px rgba(60, 64, 67, 0.3); }
+    @media (max-width: 672px) {
+      .profile-frame {
+        padding: 0.125rem; } }
+  .profile-box {
+    position: relative;
+    height: 99%;
+    width: 99%;
+    padding: 1rem;
+    border-radius: 10px;
+    background-color: var(--gray);
+    color: var(--primary);
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-flow: column;
+    transition: all var(--transition-time) ease-in-out; }
+    .profile-box > * {
+      width: 50%;
+      height: 100%;
+      display: flex;
+      justify-content: center;
+      align-items: center; }
+  .profile-head {
+    width: 75%;
+    height: 40%;
+    margin: 1.5rem 0;
+    display: flex;
+    justify-content: center;
+    align-items: center; }
+    @media (max-width: 880px) {
+      .profile-head {
+        width: 90%; } }
+    @media (max-width: 672px) {
+      .profile-head {
+        width: 100%;
+        flex-flow: column; } }
+    .profile-head-image {
+      width: 35%;
+      height: 100%;
+      padding: 1rem;
+      display: flex;
+      justify-content: center;
+      align-items: center; }
+      @media (max-width: 672px) {
+        .profile-head-image {
+          width: 100%;
+          height: 60%; } }
+      .profile-head-image__img {
+        object-fit: cover;
+        max-width: 100%;
+        max-height: 100%;
+        border-radius: 500px; }
+    .profile-head-content {
+      width: 80%;
+      height: 75%;
+      display: flex;
+      justify-content: center;
+      align-items: flex-start;
+      flex-flow: column; }
+      @media (max-width: 672px) {
+        .profile-head-content {
+          width: 100%;
+          height: 40%; } }
+      .profile-head-content > * {
+        width: 100%;
+        height: 50%;
+        padding: 0 2rem;
+        display: flex;
+        justify-content: flex-start;
+        align-items: center; }
+      .profile-head-content__name {
+        font-size: 2.5rem;
+        color: var(--primary-600); }
+        .profile-head-content__name span {
+          line-height: 2.5rem;
+          padding: 0.5rem 0; }
+      .profile-head-content__about {
+        font-size: 1rem;
+        color: var(--tcolor); }
+        .profile-head-content__about span {
+          width: 100%;
+          padding: 0 0 0.1rem 0;
+          border-bottom: 2.5px solid transparent;
+          transition: all var(--transition-time) ease-in-out; }
+          .profile-head-content__about span:focus {
+            border: none;
+            outline: none;
+            border-bottom: 2.5px solid var(--primary-600); }
+  .profile-body {
+    width: 100%;
+    height: 40%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-flow: column; }
+    .profile-body-group {
+      width: 70%;
+      height: 10rem; }
+      @media (max-width: 672px) {
+        .profile-body-group {
+          width: 85%;
+          height: 7.5rem; } }
+      .profile-body-group__title {
+        height: 40%;
+        font-size: 2rem;
+        padding: 0.5rem; }
+      .profile-body-group__content {
+        color: var(--tcolor);
+        height: 40%;
+        font-size: 1.25rem;
+        padding: 0.5rem;
+        display: flex;
+        justify-content: flex-start;
+        align-items: flex-end;
+        border-bottom: 2.5px solid var(--primary-100);
+        transition: all var(--transition-time) ease-in-out; }
+        .profile-body-group__content:hover {
+          border-bottom: 2.5px solid var(--primary-600); }
+  .profile-logout {
+    width: 100%;
+    height: 20%;
+    display: flex;
+    justify-content: center;
+    align-items: center; }
+    .profile-logout-container {
+      width: 15%;
+      height: 100%;
+      display: flex;
+      justify-content: center;
+      align-items: center; }
+      @media (max-width: 880px) {
+        .profile-logout-container {
+          width: 30%;
+          height: 50%; } }
+      @media (max-width: 672px) {
+        .profile-logout-container {
+          width: 75%;
+          height: 50%; } }
+      .profile-logout-container__button {
+        width: 100%;
+        height: 100%;
+        padding: 0.25rem;
+        background-color: var(--primary-400);
+        color: var(--bgcolor);
+        border-radius: 6.66667px;
+        cursor: pointer;
+        font-size: 1rem;
+        border: none;
+        outline: 3.5px solid transparent;
+        border-radius: 6.66667px;
+        transition: all var(--transition-time) ease-in-out; }
+        @media (max-width: 672px) {
+          .profile-logout-container__button {
+            width: 50%; } }
+        .profile-logout-container__button:hover {
+          background-color: transparent;
+          outline: 3.5px solid var(--primary-400);
+          color: var(--tcolor-700); }
+        .profile-logout-container__button:active, .profile-logout-container__button:focus {
+          outline: 3.5px solid var(--primary-100);
+          background-color: var(--primary-700);
+          color: var(--bgcolor); }
 
 html {
   font-size: 16px; }
