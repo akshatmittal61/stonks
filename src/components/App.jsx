@@ -63,8 +63,8 @@ const App = () => {
             gender: a.gender,
             img: (user.img !== person && user.img !== man && user.img !== woman) ? user.img : (a.gender === 'M' ? man : (a.gender === 'F' ? woman : person))
         })
-        setLoggedIn(true);
-        setAccountExist(true);
+        setLoggedIn(a.logInState);
+        setAccountExist(a.logInState);
     }
     const handleLogOut = () => {
         setLoggedIn(false);
@@ -132,7 +132,7 @@ const App = () => {
                             {
                                 accountExist ? (
                                     loggedIn ? (
-                                        <Profile account={user} LogOut={() => { handleLogOut() }} submit={handleAbout} />
+                                        <Profile LogOut={() => { handleLogOut() }} submit={handleAbout} />
                                     ) : (
                                         <SignIn
                                             sign={() => { setAccountExist(false) }}
