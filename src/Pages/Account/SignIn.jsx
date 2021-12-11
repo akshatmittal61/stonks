@@ -9,8 +9,13 @@ import Cookies from 'js-cookie';
 const SignIn = ({ sign, submit }) => {
   AOS.init();
   const [user, setUser] = useState({
-    email: "",
-    password: "",
+        fname: "",
+        lname: "",
+        email: "",
+        password: "",
+        gender: '',
+        img: '',
+        about: ""
   });
   const handleChange = (e) => {
     const { name, value } = e.target;
@@ -41,18 +46,27 @@ const SignIn = ({ sign, submit }) => {
       password: "",
     };
   });
-  const handleSubmit = (e) => {
+  function handleSubmit(e){
     e.preventDefault();
     if (user.email !== "" && user.password !== "") {
-      axios
+     axios
         .post("http://localhost:4000/login", user)
         .then((response) => {
           console.log(response.data);
           if(response.data.status){
+            setUser({
+              fname: response.data.fname,
+              lname: response.data.lname,
+              email: response.data.email,
+              password: response.data.password,
+              gender: response.data.gender,
+              img: "",
+              about: response.data.about,
+            });
             Cookies.set('email',response.data.email,{expires:1});
             Cookies.set('password',response.data.password,{expires:1});
           }
-          alert(response.data.message);
+          console.log(response.data.message);
         })
         .catch((error) => {
           console.log(error);

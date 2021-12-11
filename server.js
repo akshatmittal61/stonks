@@ -197,6 +197,65 @@ app.post('/profile', function(req,res){
         }
     })
 })
+app.post('/findcompany',function(req,res){
+   
+    User.findOne({email:req.body.email},function(err,foundEmail){
+        if(!err){
+            if(foundEmail){
+                console.log(foundEmail);
+                res.json(foundEmail);
+
+            }
+        }
+        else{
+            console.log(err);
+        }
+    })
+})
+app.post('/company', function(req,res){
+    
+    
+    User.findOneAndUpdate({email:req.body.email},{
+       c1:req.body.stocks[0].c1,
+       s1:req.body.stocks[0].s1,
+       c2:req.body.stocks[1].c2,
+       s2:req.body.stocks[1].s2,
+       c3:req.body.stocks[2].c3,
+       s3:req.body.stocks[2].s3,
+       c4:req.body.stocks[3].c4,
+       s4:req.body.stocks[3].s4,
+       c5:req.body.stocks[4].c5,
+       s5:req.body.stocks[4].s5,
+       c6:req.body.stocks[5].c6,
+       s6:req.body.stocks[5].s6,
+       c7:req.body.stocks[6].c7,
+       s7:req.body.stocks[6].s7,
+       c8:req.body.stocks[7].c8,
+       s8:req.body.stocks[7].s8,
+       c9:req.body.stocks[8].c9,
+       s9:req.body.stocks[8].s9,
+       c10:req.body.stocks[9].c10,
+       s10:req.body.stocks[9].s10,
+       
+    } ,function(err){
+        if(err){
+            console.log(err);
+        }
+        else{
+            User.findOne({email:req.body.email},function(err,foundEmail){
+                if(!err){
+                    console.log(foundEmail);
+                }
+            })
+            console.log("ok");
+            
+            res.json({
+                status:"true",
+                message:"Saved"
+            });
+        }
+    })
+})
 
 
 app.listen(PORTS, function () {
