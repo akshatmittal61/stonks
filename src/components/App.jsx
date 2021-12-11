@@ -104,7 +104,7 @@ const App = () => {
   const [render, setRender] = useState(1);
   const [stocks, setStocks] = useState([
     {
-      c1: "amazone",
+      c1: "",
       s1: "",
     },
     {
